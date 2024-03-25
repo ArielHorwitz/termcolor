@@ -7,6 +7,7 @@ const FG_GREY: &str = "\x1b[38;5;250m";
 #[derive(Debug, Parser)]
 #[clap(about = "Display terminal colors")]
 #[clap(author = "https://ariel.ninja")]
+#[clap(version)]
 struct Args {
     /// Hue resolution
     #[arg(short = 'H', long, default_value_t = 16)]

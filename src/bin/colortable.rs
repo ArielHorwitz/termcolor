@@ -5,7 +5,7 @@ const FG_BLACK: &str = "\x1b[38;2;0;0;0m";
 const FG_GREY: &str = "\x1b[38;5;250m";
 
 #[derive(Debug, Parser)]
-#[clap(about = "Display terminal colors")]
+#[clap(about = "Display terminal colors.")]
 #[clap(author = "https://ariel.ninja")]
 #[clap(version)]
 struct Args {

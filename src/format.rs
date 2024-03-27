@@ -4,7 +4,7 @@ const CODE_START: &str = "\x1b[";
 const CODE_END: &str = "m";
 const RESET: &str = "\x1b[m";
 const AFTER_LONG_HELP: &str = "
-mColors:
+Colors:
 - blac(k)
 - (w)hite
 - (r)ed

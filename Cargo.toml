@@ -1,6 +1,6 @@
 [package]
 name = "termcolors"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Format text and display colors in the terminal."
 repository = "https://github.com/ArielHorwitz/termcolors"

@@ -8,6 +8,7 @@ const FG_GREY: &str = "\x1b[38;5;250m";
 #[clap(about = "Display terminal colors.")]
 #[clap(author = "https://ariel.ninja")]
 #[clap(version)]
+#[clap(disable_version_flag = true)]
 struct Args {
     /// Hue resolution
     #[arg(short = 'H', long, default_value_t = 16)]
@@ -36,6 +37,9 @@ struct Args {
     /// Show legend (hue, saturation, and value)
     #[arg(short, long)]
     legend: bool,
+    /// Print version
+    #[arg(long, action = clap::ArgAction::Version)]
+    version: (),
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, clap::ValueEnum)]

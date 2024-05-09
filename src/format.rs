@@ -26,12 +26,12 @@ pub struct Args {
     #[arg(short = 's', long, conflicts_with_all = ["foreground", "background", "options"])]
     style: Option<Style>,
     /// Foreground color
-    #[arg(short = 'f', long)]
+    #[arg(short = 'f', long, value_name = "COLOR")]
     foreground: Option<Color>,
     /// Background color
-    #[arg(short = 'b', long)]
+    #[arg(short = 'b', long, value_name = "COLOR")]
     background: Option<Color>,
-    /// Formatting options
+    /// Formatting options (comma-separated)
     #[arg(short = 'o', long, value_delimiter = ',')]
     options: Vec<FormattingOption>,
     /// Reset formatting before text

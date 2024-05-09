@@ -3,25 +3,14 @@ use clap::Parser;
 const CODE_START: &str = "\x1b[";
 const CODE_END: &str = "m";
 const RESET: &str = "\x1b[m";
-const AFTER_LONG_HELP: &str = "
-Colors:
-- blac(k)
-- (w)hite
-- (r)ed
-- (g)reen
-- (b)lue
-- (y)ellow
-- (c)yan
-- (m)agenta
+const AFTER_LONG_HELP: &str = "\x1b[1;4mColors (use uppercase for brighter color):\x1b[0m
+blac(k), (w)hite, (r)ed, (g)reen, (b)lue, (y)ellow, (c)yan, (m)agenta
 
-Styles:
-- ok
-- notice
-- error
-- warn
-- info
-- debug";
+\x1b[1;4mFormatting options\x1b[0m:
+(b)old, (d)im, (u)nderline, (i)talic, (s)trikethrough
 
+\x1b[1;4mStyles\x1b[0m:
+ok, notice, error, warn, info, debug";
 
 #[derive(Debug, Parser)]
 #[clap(about = "Format text for ANSI terminal.")]
@@ -90,6 +79,22 @@ enum Color {
     Cyan,
     #[clap(alias = "m")]
     Magenta,
+    #[clap(alias = "K", alias = "BLACK")]
+    BrightBlack,
+    #[clap(alias = "W", alias = "WHITE")]
+    BrightWhite,
+    #[clap(alias = "R", alias = "RED")]
+    BrightRed,
+    #[clap(alias = "G", alias = "GREEN")]
+    BrightGreen,
+    #[clap(alias = "B", alias = "BLUE")]
+    BrightBlue,
+    #[clap(alias = "Y", alias = "YELLOW")]
+    BrightYellow,
+    #[clap(alias = "C", alias = "CYAN")]
+    BrightCyan,
+    #[clap(alias = "M", alias = "MAGENTA")]
+    BrightMagenta,
 }
 
 /// Color options
@@ -194,5 +199,13 @@ fn get_color_code_digit(color: Color) -> u8 {
         Color::Magenta => 5,
         Color::Cyan => 6,
         Color::White => 7,
+        Color::BrightBlack => 60,
+        Color::BrightRed => 61,
+        Color::BrightGreen => 62,
+        Color::BrightYellow => 63,
+        Color::BrightBlue => 64,
+        Color::BrightMagenta => 65,
+        Color::BrightCyan => 66,
+        Color::BrightWhite => 67,
     }
 }
